@@ -9,8 +9,8 @@ WORKDIR /app
 # 3. Copy all of your project files from your computer into the environment
 COPY . .
 
-# 4. Run the Maven build command and SKIP the broken tests (THIS IS THE FIX)
+# 4. Run the Maven build command and SKIP the broken tests
 RUN mvn clean install -DskipTests
 
-# 5. This is the command that will be run to start your application
-CMD ["java", "-jar", "target/client-management-system-1.0.0.jar"]
+# 5. This is the command that will be run to start your application (WITH THE CORRECT FILENAME)
+CMD ["java", "-jar", "target/CRM-0.0.1-SNAPSHOT.jar"]
