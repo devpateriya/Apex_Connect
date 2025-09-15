@@ -1,2 +1,13 @@
+# This file gives explicit instructions to the deployment server.
+
 [phases.setup]
-nixPkgs = ["pkgs.jdk8"]
+# Tell the server to install Java 8 and Maven.
+nixPkgs = ["pkgs.jdk8", "pkgs.maven"]
+
+[phases.build]
+# Tell the server exactly how to build the project.
+cmds = ["mvn clean install -DskipTests"]
+
+[start]
+# Tell the server exactly how to start the application after building it.
+cmd = "java -jar target/client-management-system-1.0.0.jar"
