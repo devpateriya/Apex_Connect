@@ -13,4 +13,5 @@ COPY . .
 RUN mvn clean install -DskipTests
 
 # 5. This is the final, correct command to start your application
-CMD ["java", "-jar", "target/client-relation-manager-1.0.0.jar"]
+# The "-Xmx350m" flag tells Java to use a maximum of 350MB of memory.
+CMD ["java", "-Xmx350m", "-jar", "target/client-relation-manager-1.0.0.jar"]
