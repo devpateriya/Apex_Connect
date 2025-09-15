@@ -5,6 +5,8 @@
 nixPkgs = ["pkgs.jdk8", "pkgs.maven"]
 
 [phases.build]
+# THIS IS THE FIX: Disable all automatic build systems.
+providers = []
 # Tell the server exactly how to build the project.
 cmds = ["mvn clean install -DskipTests"]
 
