@@ -1,3 +1,5 @@
+# This file is the final, correct recipe for the deployment server.
+
 # 1. Start with a pre-built environment that has Java 8 and Maven
 FROM maven:3.8.5-openjdk-8
 
