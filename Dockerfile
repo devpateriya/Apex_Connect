@@ -1,4 +1,4 @@
-# This file is the final, correct recipe for the deployment server.
+# This is the final, correct recipe for the deployment server.
 
 # 1. Start with a pre-built environment that has Java 8 and Maven
 FROM maven:3.8.5-openjdk-8
@@ -13,6 +13,6 @@ COPY . .
 RUN mvn clean install -DskipTests
 
 # 5. This is the final, correct command to start your application.
-# It directly provides the database credentials, bypassing all other configuration.
-# The "-Dserver.port=${PORT}" line is a special instruction for Render to use the correct network port.
-CMD java -Xmx350m -jar target/client-relation-manager-1.0.0.jar -Dserver.port=${PORT} --spring.datasource.url=jdbc:postgresql://dpg-d345kmnfte5s73eg757g-a/apex_connect_db --spring.datasource.username=apex_connect_db_user --spring.datasource.password=8ORdS7tLNa78hKHY5c3gJldKDOdSFyJV
+# It sets a memory limit and uses the correct JAR file name from your pom.xml.
+# It does NOT contain any database details.
+CMD ["java", "-Xmx350m", "-jar", "target/client-relation-manager-1.0.0.jar"]
